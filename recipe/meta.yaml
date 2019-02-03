@@ -1,6 +1,6 @@
 {% set name = "oq-engine" %}
-{% set version = "2.9.0" %}
-{% set sha256 = "2aae05cb24f68a12d7900aba4bb33fc635643287fcbf2ec9d65e551038ac8629" %}
+{% set version = "3.3.2" %}
+{% set sha256 = "3833468aa046f800b3f292d781993f4bd813ad9e34e31e504104241eccbb0693" %}
 
 
 package:
@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
+  number: 0
   #This recipe currently only runs on Python 3.5,
   #update when oq-engine source supports a different version.
   skip: True  # [not py35]
