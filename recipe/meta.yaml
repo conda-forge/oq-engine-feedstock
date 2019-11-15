@@ -1,51 +1,41 @@
-{% set name = "oq-engine" %}
 {% set version = "3.4.0" %}
-{% set sha256 = "1a334d280caea37d9d6a5a38ee9cb410b1067fd9714d7d4ef3894223bb6ddaf5" %}
 
 
 package:
-  name: {{ name|lower }}
+  name: oq-engine
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/gem/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/gem/oq-engine/archive/v{{ version }}.tar.gz
+  sha256: 1a334d280caea37d9d6a5a38ee9cb410b1067fd9714d7d4ef3894223bb6ddaf5
 
 build:
   number: 0
-  #This recipe currently only runs on Python 3.5,
-  #update when oq-engine source supports a different version.
-  skip: True  # [not py35]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  skip: True  # [py2k]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
     - python
-    - setuptools
-
-  #these are all of the dependencies for oq-engine.  Extras are not currently handled,
-  #as some of them are not available via conda.
+    - pip
   run:
     - python
-    - mock >=1.0,<1.4
-    - h5py >=2.2,<2.8
-    - nose >=1.3,<1.4
-    - numpy >=1.8,<1.12
-    - scipy >=0.13,<0.18
-    - psutil >=1.2,<4.5
-    - shapely >=1.3,<1.6
-    - docutils >=0.11,<0.14
-    - decorator >=3.4,<4.1
-    - django >=1.6,<1.12
-    - matplotlib >=1.5,<2.0
-    - requests >=2.2,<2.13
-    - pyshp >=1.2.3,<1.2.11
+    - h5py >=2.9,<2.10
+    - numpy >=1.16,<1.17
+    - scipy >=1.3,<1.4
+    - pyzmq <18.2
+    - psutil >=2.0,<5.7
+    - shapely >=1.3,<1.7
+    - docutils >=0.11,<0.15
+    - decorator >=4.3
+    - django >=1.11,<2.3
+    - matplotlib >=1.5,<3.2
+    - requests >=2.20,<2.23
+    - pyshp ==1.2.3
     - pyyaml
+    - toml
     
 test:
-  # Some packages might need a `test/commands` key to check CLI.
-  # List all the packages/modules that `run_test.py` imports.
   imports:
     - openquake.hazardlib
 
@@ -54,9 +44,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: 'The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale.'
-
-  # The remaining entries in this section are optional, but recommended
+  summary: 'The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale'
   description: |
     The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale. It runs on Linux, macOS and Windows, on laptops, workstations, standalone servers and multi-node clusters.
   doc_url: https://github.com/gem/oq-engine/tree/engine-2.5#openquake-engine
@@ -64,6 +52,4 @@ about:
 
 extra:
   recipe-maintainers:
-    # GitHub IDs for maintainers of the recipe.
-    # Always check with the people listed below if they are OK becoming maintainers of the recipe. (There will be spam!)
     - mhearne-usgs
