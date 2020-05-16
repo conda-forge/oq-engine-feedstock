@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   #This recipe currently only runs on Python 3.5,
   #update when oq-engine source supports a different version.
   skip: True  # [not py35]
@@ -38,7 +38,7 @@ requirements:
     - docutils >=0.11,<0.14
     - decorator >=3.4,<4.1
     - django >=1.6,<1.12
-    - matplotlib >=1.5,<2.0
+    - matplotlib-base >=1.5,<2.0
     - requests >=2.2,<2.13
     - pyshp >=1.2.3,<1.2.11
     - pyyaml
