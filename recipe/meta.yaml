@@ -1,6 +1,6 @@
 {% set name = "oq-engine" %}
-{% set version = "3.3.2" %}
-{% set sha256 = "3833468aa046f800b3f292d781993f4bd813ad9e34e31e504104241eccbb0693" %}
+{% set version = "3.7.0" %}
+{% set sha256 = "a477f475092d00dba0a3fc3b81048efe15230f7d592e8b4bb27577201a4ae81a" %}
 
 
 package:
