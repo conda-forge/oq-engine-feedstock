@@ -5,7 +5,7 @@ Home: https://github.com/gem/oq-engine
 
 Package license: GPL-3.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale.
 
