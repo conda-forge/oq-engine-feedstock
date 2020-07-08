@@ -1,6 +1,6 @@
 {% set name = "oq-engine" %}
-{% set version = "3.7.0" %}
-{% set sha256 = "a477f475092d00dba0a3fc3b81048efe15230f7d592e8b4bb27577201a4ae81a" %}
+{% set version = "3.8.1" %}
+{% set sha256 = "414146b751a26b680c0c9c9930255ec0fc54727faa23746a922a19a260c0bf4d" %}
 
 
 package:
@@ -13,10 +13,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   #This recipe currently only runs on Python 3.5,
   #update when oq-engine source supports a different version.
-  skip: True  # [not py35]
+  skip: true  # [not py35]
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -42,7 +42,7 @@ requirements:
     - requests >=2.2,<2.13
     - pyshp >=1.2.3,<1.2.11
     - pyyaml
-    
+
 test:
   # Some packages might need a `test/commands` key to check CLI.
   # List all the packages/modules that `run_test.py` imports.
@@ -54,7 +54,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: 'The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale.'
+  summary: The OpenQuake Engine is an open source application that allows users to compute seismic hazard and seismic risk of earthquakes on a global scale.
 
   # The remaining entries in this section are optional, but recommended
   description: |
